@@ -18,14 +18,14 @@ public class Ejercicios {
     {
         try
         {
-            PrintWriter peli = new PrintWriter(nombre_archivo);
+            PrintWriter p1 = new PrintWriter(nombre_archivo);
 
-            for(Pelicula p : peliculas)
+            for(Pelicula movie : peliculas)
             {
-                peli.println(p.nombre + " " + p.descripcion+" "+ p.duracion);
+                p1.println(movie.nombre + " " + movie.descripcion+" "+ movie.duracion);
             }
 
-            peli.close();
+            p1.close();
         }catch (Exception e)
         {
             System.out.println("Ocurrio un error al guardar.");
@@ -35,7 +35,7 @@ public class Ejercicios {
 
     static ArrayList<Pelicula> abrir(String nombre_archivo)
     {
-       ArrayList<Pelicula> pelic= new ArrayList<>(); 
+       ArrayList<Pelicula> p2= new ArrayList<>(); 
         try
         {
             Scanner scanner = new Scanner(new File(nombre_archivo));
@@ -44,13 +44,13 @@ public class Ejercicios {
                 String nombre = scanner.next();
                 String descripcion = scanner.next();
                 int duracion = scanner.nextInt();
-                pelic.add (new Pelicula(nombre, descripcion, duracion) );
+                p2.add (new Pelicula(nombre, descripcion, duracion) );
             }
             scanner.close();
         }catch(Exception e)
         {
             System.out.print("Error al leer el archivo");
         }
-        return pelic;
+        return p2;
     }
 }
